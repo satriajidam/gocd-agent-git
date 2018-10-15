@@ -4,8 +4,7 @@ LABEL gocd.version="18.8.0" \
   description="GoCD agent based on alpine version 3.8" \
   maintainer="Agastyo Satriaji Idam <play.satriajidam@gmail.com>" \
   gocd.full.version="18.8.0-7433" \
-  gocd.git.sha="75d1247f58ab8bcde3c5b43392a87347979f82c5" \
-  jdk.version="1.8.0_171"
+  gocd.git.sha="75d1247f58ab8bcde3c5b43392a87347979f82c5"
 
 ADD https://github.com/krallin/tini/releases/download/v0.18.0/tini-static-amd64 /usr/local/sbin/tini
 ADD https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 /usr/local/sbin/gosu
@@ -30,7 +29,7 @@ RUN \
   addgroup go root && \
   apk update --no-cache && \
   apk upgrade --no-cache && \
-  apk add --no-cache git mercurial subversion openssh-client bash curl && \
+  apk add --no-cache openjdk8-jre-base git mercurial subversion openssh-client bash curl && \
   # download the zip file
   curl --fail --location --silent --show-error "https://download.gocd.org/binaries/18.8.0-7433/generic/go-agent-18.8.0-7433.zip" > /tmp/go-agent.zip && \
   # unzip the zip file into /go-agent, after stripping the first path prefix
