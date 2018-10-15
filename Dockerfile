@@ -17,9 +17,6 @@ ENV LANG=en_US.utf8
 ARG UID=1000
 ARG GID=1000
 
-# use uk alpine respository
-RUN echo -e "https://uk.alpinelinux.org/alpine/v3.8/main\nhttps://uk.alpinelinux.org/alpine/v3.8/community" > /etc/apk/repositories
-
 RUN \
   # add mode and permissions for files we added above
   chmod 0755 /usr/local/sbin/tini && \
@@ -38,7 +35,7 @@ RUN \
   curl --fail --location --silent --show-error "https://download.gocd.org/binaries/18.8.0-7433/generic/go-agent-18.8.0-7433.zip" > /tmp/go-agent.zip && \
   # unzip the zip file into /go-agent, after stripping the first path prefix
   unzip /tmp/go-agent.zip -d / && \
-  mv go-agent-18.7.0 /go-agent && \
+  mv go-agent-18.8.0 /go-agent && \
   rm /tmp/go-agent.zip && \
   mkdir -p /docker-entrypoint.d
 
