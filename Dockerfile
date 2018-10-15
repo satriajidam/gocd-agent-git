@@ -17,6 +17,9 @@ ENV LANG=en_US.utf8
 ARG UID=1000
 ARG GID=1000
 
+# use uk alpine respository
+RUN echo -e "https://uk.alpinelinux.org/alpine/v3.8/main\nhttps://uk.alpinelinux.org/alpine/v3.8/community" > /etc/apk/repositories
+
 RUN \
   # add mode and permissions for files we added above
   chmod 0755 /usr/local/sbin/tini && \
